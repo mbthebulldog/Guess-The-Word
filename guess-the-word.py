@@ -1,7 +1,18 @@
-master = input("Pick an extra-secret special word: ")
-print("\n" * 50)
+import getpass
+
+while True:
+    master = getpass.getpass("Pick an extra-secret special word: ")
+    master = master.lower()
+    if (master.isalpha()):
+        break
+    elif (not master.isalpha()):
+        print("Please, no spaces or special characters.")
+    else:
+        raise Exception("Input does not match either conditional above.")
+
 print("Now pass to a friend, lover, or literate af pet.")
 print("---------")
+
 word = list(master)
 length = len(word)
 right = list("_" * length)
